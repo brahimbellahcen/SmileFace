@@ -1,4 +1,4 @@
-20000 images for val
+20000 images for val [180001:200000]
 image_id x_1 y_1 width height smiling
 180001.jpg   110  57 205 284 -1
 180002.jpg    93  53 156 216 1

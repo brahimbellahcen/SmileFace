@@ -5,9 +5,10 @@ import tqdm
 import random
 import tensorflow as tf
 import numpy as np
+from modules.utils import load_yaml
 
-flags.DEFINE_string('dataset_path', '/Users/lichaochao/Downloads/CelebA/CelebA/train/',
-                    'path to dataset')
+flags.DEFINE_string('cfg_path', '../../configs/retinaface_mbv2_local.yaml',
+                    'config file path')
 flags.DEFINE_string('output_path', './CelebA_train_bin_100.tfrecord',
                     'path to ouput tfrecord')
 flags.DEFINE_boolean('is_binary', True, 'whether save images as binary files'
@@ -85,8 +86,10 @@ def get_target(labels):
 
 
 def main(_):
+    cfg = load_yaml(FLAGS.cfg_path)
+    dataset_path = cfg['train_image_dataset_path']
+
     txt_path = './img_box_smile_100.txt'
-    dataset_path = FLAGS.dataset_path
     logging.info('Reading data list...')
     img_paths, words = load_info(dataset_path, txt_path)
     samples = list(zip(img_paths, words))
@@ -116,4 +119,3 @@ if __name__ == '__main__':
         app.run(main)
     except SystemExit:
         pass
-

@@ -11,7 +11,7 @@ from modules.models import RetinaFaceModel
 from modules.utils import (set_memory_growth, load_yaml, draw_bbox_landm,
                            pad_input_image, recover_pad_output)
 
-flags.DEFINE_string('cfg_path', './configs/retinaface_mbv2_320_local.yaml',
+flags.DEFINE_string('cfg_path', './configs/retinaface_mbv2_local.yaml',
                     'config file path')
 flags.DEFINE_string('gpu', '-1', 'which gpu to use')
 flags.DEFINE_string('img_path', '/Users/lichaochao/Downloads/CelebA/CelebA/test/200001.jpg', 'path to input image')
