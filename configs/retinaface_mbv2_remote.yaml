@@ -5,7 +5,7 @@ sub_name: 'retinaface_mbv2'
 weights: './model/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_224_no_top.h5'
 
 # training dataset
-dataset_path: '/udata/lichaochao/retinaface_mbv2-smile/data/CelebA/CelebA_train_bin_100.tfrecord'
+dataset_path: '/udata/lichaochao/CelebA/CelebA_train_bin.tfrecord'
 dataset_len: 180000
 using_bin: True
 using_flip: True

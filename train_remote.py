@@ -10,7 +10,7 @@ from modules.losses import MultiBoxLoss
 from modules.anchor import prior_box
 from modules.utils import load_yaml, load_dataset, ProgressBar
 
-flags.DEFINE_string('cfg_path', './configs/retinaface_mbv2_local.yaml', 'config file path')
+flags.DEFINE_string('cfg_path', './configs/retinaface_mbv2_remote.yaml', 'config file path')
 
 
 def main(_):
@@ -40,7 +40,7 @@ def main(_):
     with strategy.scope():
         # define model
         model = RetinaFaceModel(cfg)
-        model.summary()
+
 
         # define losses function
         multi_box_loss = MultiBoxLoss()
@@ -72,6 +72,7 @@ def main(_):
         else:
             model.load_weights('./model/mbv2_weights.h5', by_name=True, skip_mismatch=True)
             print("[*] training from scratch.")
+        model.summary()
 
     with strategy.scope():
         # define training step function

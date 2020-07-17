@@ -6,14 +6,14 @@ weights: './model/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_224_no_top
 
 # training dataset
 dataset_path: './data/CelebA/CelebA_train_bin_100.tfrecord'
-dataset_len: 100
+dataset_len: 180000
 using_bin: True
-using_flip: False
-using_distort: False
+using_flip: True
+using_distort: True
 
-# images dataset
-train_image_dataset_path: '/Users/lichaochao/Downloads/CelebA/CelebA/train/'
-testing_image_dataset_path: '/Users/lichaochao/Downloads/CelebA/CelebA/test/'
+# testing dataset
+train_image_dataset_path: '/udata/lichaochao/CelebA/train/'
+testing_image_dataset_path: '/udata/lichaochao/CelebA/test/'
 
 # network
 out_channel: 64
@@ -29,14 +29,13 @@ clip: False
 # training setting
 epoch: 100
 init_lr: !!float 1e-2
-lr_decay_epoch: [50, 68]
+lr_decay_epoch: [30, 50, 68]
 lr_rate: 0.1
 warmup_epoch: 5
 min_lr: !!float 1e-3
-
 weights_decay: !!float 5e-4
 momentum: 0.9
 
 pretrain: True
 
-save_steps: 100
+save_steps: 1000
